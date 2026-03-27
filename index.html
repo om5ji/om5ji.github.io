@@ -64,4 +64,133 @@
         </button>
     </section>
 
-    <section class="pb-24 px-6
+    <section class="pb-24 px-6">
+        <div class="max-w-md mx-auto bg-gray-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-600 relative z-10">
+            <h3 id="formTitle" class="text-xl font-bold mb-6 text-center text-blue-400">Describe your issue in detail</h3>
+            
+            <textarea id="issue" rows="4" placeholder="Example: My Linux Mint is not booting after update..." 
+                class="w-full p-4 mb-6 bg-gray-800 rounded-xl text-white border border-gray-600 outline-none focus:ring-2 focus:ring-blue-500 transition shadow-inner"></textarea>
+            
+            <button onclick="sendToWA()" class="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-xl border border-green-400 flex items-center justify-center gap-3">
+                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                </svg>
+                <span id="waText">Send Message on WhatsApp</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="pb-24 px-6 max-w-4xl mx-auto relative z-10">
+        <div class="bg-gray-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-600">
+            <h3 id="commentsTitle" class="text-2xl font-bold mb-6 text-center text-blue-400 border-b border-gray-700 pb-4">Community Reviews & Comments</h3>
+            <div id="disqus_thread"></div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-400 border-t border-gray-700 bg-gray-900/90 relative z-10 backdrop-blur-sm">
+        <p id="footerText">© 2026 OmTech Global | Solution for every Software Problem</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="https://www.instagram.com/saurabhvibe.s/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+    const translations = {
+        en: {
+            nav1: "OS Errors", nav2: "Performance", nav3: "Linux Expert",
+            heroTitle: "Global Tech Support from Ballia",
+            heroSub: "Windows BSOD, Linux Boot Loop, or a Slow PC? I can fix your device remotely from anywhere in the world.",
+            expertTitle: "Meet Your Expert",
+            expertDesc: "I am Om Gupta, your dedicated remote technician from Ballia, India. Specializing in advanced OS diagnostics, Linux Mint optimization, and global software support. My goal is to ensure your device runs seamlessly, saving you time and money.",
+            expertSlogan: "OmTech Global: Every Software Problem has a Solution.",
+            reviewSectionTitle: "Your Feedback Matters",
+            reviewSectionSub: "Help us improve our services. Send your valuable suggestions or review our work directly on WhatsApp.",
+            feedbackBtnText: "Leave a Review / Share Feedback",
+            formTitle: "Describe your issue in detail",
+            formPlaceholder: "Example: My Linux Mint is not booting after update...",
+            waBtn: "Send Message on WhatsApp",
+            commentsTitle: "Community Reviews & Comments",
+            footerText: "© 2026 OmTech Global | Solution for every Software Problem",
+            langBtn: "हिंदी"
+        },
+        hi: {
+            nav1: "OS एरर्स", nav2: "परफॉर्मेंस", nav3: "लिनक्स एक्सपर्ट",
+            heroTitle: "बलिया से ग्लोबल टेक सपोर्ट",
+            heroSub: "Windows BSOD, Linux Boot Loop, या Slow PC? मैं दुनिया के किसी भी कोने से आपका डिवाइस रिमोटली ठीक कर सकता हूँ।",
+            expertTitle: "अपने एक्सपर्ट से मिलें",
+            expertDesc: "मैं ओम गुप्ता हूँ, बलिया, भारत से आपका समर्पित रिमोट टेकनिशियन। मैं एडवांस OS डायग्नोस्टिक्स, लिनक्स मिंट ऑप्टिमाइज़ेशन, और ग्लोबल सॉफ्टवेयर सपोर्ट में एक्सपर्ट हूँ। मेरा लक्ष्य यह सुनिश्चित करना है कि आपका डिवाइस निर्बाध रूप से चले, जिससे आपका समय और पैसा बचे।",
+            expertSlogan: "ओमटेक ग्लोबल: हर सॉफ्टवेयर समस्या का समाधान।",
+            reviewSectionTitle: "आपका फीडबैक महत्वपूर्ण है",
+            reviewSectionSub: "हमारी सर्विस को और बेहतर बनाने में मदद करें। अपने सुझाव या रिव्यू सीधे WhatsApp पर भेजें।",
+            feedbackBtnText: "अपना रिव्यू या सुझाव दें",
+            formTitle: "अपनी समस्या यहाँ विस्तार से लिखें",
+            formPlaceholder: "उदाहरण: My Linux Mint update के बाद boot नहीं हो रहा है...",
+            waBtn: "WhatsApp पर मैसेज भेजें",
+            commentsTitle: "ग्राहकों के रिव्यु और कमेंट्स",
+            footerText: "© 2026 OmTech Global | हर सॉफ्टवेयर समस्या का समाधान",
+            langBtn: "English"
+        }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'hi' : 'en';
+        document.getElementById('nav1').innerText = translations[currentLang].nav1;
+        document.getElementById('nav2').innerText = translations[currentLang].nav2;
+        document.getElementById('nav3').innerText = translations[currentLang].nav3;
+        document.getElementById('heroTitle').innerText = translations[currentLang].heroTitle;
+        document.getElementById('heroSub').innerText = translations[currentLang].heroSub;
+        document.getElementById('expertTitle').innerText = translations[currentLang].expertTitle;
+        document.getElementById('expertDesc').innerText = translations[currentLang].expertDesc;
+        document.getElementById('expertSlogan').innerText = translations[currentLang].expertSlogan;
+        document.getElementById('reviewSectionTitle').innerText = translations[currentLang].reviewSectionTitle;
+        document.getElementById('reviewSectionSub').innerText = translations[currentLang].reviewSectionSub;
+        document.getElementById('feedbackBtnText').innerText = translations[currentLang].feedbackBtnText;
+        document.getElementById('formTitle').innerText = translations[currentLang].formTitle;
+        document.getElementById('issue').placeholder = translations[currentLang].formPlaceholder;
+        document.getElementById('waText').innerText = translations[currentLang].waBtn;
+        document.getElementById('commentsTitle').innerText = translations[currentLang].commentsTitle;
+        document.getElementById('footerText').innerText = translations[currentLang].footerText;
+        document.getElementById('langBtn').innerText = translations[currentLang].langBtn;
+    }
+
+    // समस्या भेजने के लिए
+    function sendToWA() {
+        let issue = document.getElementById('issue').value;
+        if(issue.trim() === "") {
+            alert(currentLang === 'en' ? "Please describe your issue first!" : "कृपया पहले अपनी समस्या लिखें!");
+            return;
+        }
+        let myNumber = "918112665753"; 
+        let defaultText = currentLang === 'en' ? "Hi Om, I found your website. I need help with: " : "नमस्ते ओम, मैंने आपकी वेबसाइट देखी। मुझे इस समस्या में मदद चाहिए: ";
+        let url = "https://wa.me/" + myNumber + "?text=" + encodeURIComponent(defaultText + issue);
+        window.open(url, '_blank');
+    }
+
+    // फीडबैक या रिव्यू देने के लिए
+    function sendFeedbackWA() {
+        let myNumber = "918112665753"; 
+        let defaultText = currentLang === 'en' ? "Hi Om, I visited your website and would like to give some feedback/review: " : "नमस्ते ओम, मैंने आपकी वेबसाइट देखी और मैं एक फीडबैक/सलाह देना चाहता हूँ: ";
+        let url = "https://wa.me/" + myNumber + "?text=" + encodeURIComponent(defaultText);
+        window.open(url, '_blank');
+    }
+
+    /**
+    * DISQUS CONFIGURATION
+    */
+    var disqus_config = function () {
+        // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://omtechglobal.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
+</html>
